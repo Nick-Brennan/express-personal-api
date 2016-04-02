@@ -11,7 +11,15 @@ app.use(bodyParser.urlencoded({ extended: true }));
  * DATABASE *
  ************/
 
-// var db = require('./models');
+ //hardcoded profile data
+ var me = {
+   name: "Nick Brenan",
+   github_link: "https://github.com/Nick-Brennan",
+   github_profile_image: "https://avatars0.githubusercontent.com/u/13402059?v=3&s=460",
+   current_city: 'Mill Valley'
+ }
+
+var db = require('./models');
 
 /**********
  * ROUTES *
@@ -29,6 +37,10 @@ app.get('/', function homepage(req, res) {
   res.sendFile(__dirname + '/views/index.html');
 });
 
+app.get('/profile', function profile(req, res){
+  res.json(me);
+});
+
 
 /*
  * JSON API Endpoints
@@ -37,7 +49,6 @@ app.get('/', function homepage(req, res) {
 app.get('/api', function api_index(req, res) {
   // TODO: Document all your api endpoints below
   res.json({
-    woops_i_has_forgot_to_document_all_my_endpoints: true, // CHANGE ME ;)
     message: "Welcome to my personal api! Here's what you need to know!",
     documentation_url: "https://github.com/Nick-Brennan/express-personal-api/README.md", // CHANGE ME
     base_url: "http://shrouded-crag-80181.herokuapp.com", // CHANGE ME
