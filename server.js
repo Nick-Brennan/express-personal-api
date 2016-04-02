@@ -47,6 +47,12 @@ app.get('/guitars', function index(req, res){
   });
 });
 
+app.get('/guitars/:id', function show(req, res){
+  db.Guitar.findById(req.params.id, function(err, guitar){
+    res.send(guitar);
+  })
+});
+
 
 /*
  * JSON API Endpoints
