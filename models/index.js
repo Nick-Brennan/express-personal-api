@@ -3,4 +3,4 @@ mongoose.connect( process.env.MONGOLAB_URI ||
                   process.env.MONGOHQ_URL ||
                   "mongodb://localhost/personal-api");
 
-module.exports.Guitar = require("./guitar.js");
+module.exports.Guitar = require("./electric_guitar.js");
