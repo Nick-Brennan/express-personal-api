@@ -53,7 +53,7 @@ app.get('/guitars/:id', function show(req, res){
   })
 });
 
-app.delete('/guitars/:id', function delete(req, res){
+app.delete('/guitars/:id', function(req, res){
   db.Guitar.remove({_id: req.params.id}, function(err, guitar){
     console.log('guitar deleted');
     res.redirect('/guitars');
