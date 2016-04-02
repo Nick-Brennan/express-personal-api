@@ -13,7 +13,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
  //hardcoded profile data
  var me = {
-   name: "Nick Brenan",
+   name: "Nick Brennan",
    github_link: "https://github.com/Nick-Brennan",
    github_profile_image: "https://avatars0.githubusercontent.com/u/13402059?v=3&s=460",
    current_city: 'Mill Valley'
