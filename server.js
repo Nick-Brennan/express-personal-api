@@ -41,6 +41,12 @@ app.get('/profile', function profile(req, res){
   res.json(me);
 });
 
+app.get('/guitars', function index(req, res){
+  db.Guitar.find({}, function(err, guitars){
+    res.send(guitars);
+  });
+});
+
 
 /*
  * JSON API Endpoints
