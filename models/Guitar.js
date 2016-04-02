@@ -8,6 +8,6 @@ var GuitarSchema = new Schema({
   neck_construction: String,
 });
 
-var Guitar = mongoose.model('Guitar', CampsiteSchema);
+var Guitar = mongoose.model('Guitar', GuitarSchema);
 
 module.exports = Guitar;
