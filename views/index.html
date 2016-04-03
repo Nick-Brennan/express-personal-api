@@ -21,8 +21,36 @@
     <div class="container">
       <div class="row">
         <div class="col-md-8 col-md-offset-2">
-          <h1>Under Construction</h1>
+          <h1>Nick's API Dashboard</h1>
           <h4><a href="/api">Read My API Documentation</a></h4>
+        </div>
+      </div>
+      <div class="row">
+        <div id='profileTarget'>
+          <script id="nick-template" type="text/x-handlebars-template">
+            <h2>{{profile.name}}</h2>
+            <h6>{{profile.github_link}}</h6>
+            <img src="{{profile.github_profile_image}}" />
+            <h4>{{profile.current_city}}</h4>
+            <hr />
+          </script>
+        </div>
+      </div>
+      <div class="row">
+        <div id='guitarsTarget'>
+          <ul>
+            <script id="guitar-template" type="text/x-handlebars-template">
+              {{#each guitars}}
+              <li>
+                <h4>{{brand}}</h4>
+                <p>
+                  {{model}} -- {{pickups}} -- {{neck_construction}}
+                </p>
+                <hr />
+              </li>
+              {{/each}}
+            </script>
+          </ul>
         </div>
       </div>
     </div>
