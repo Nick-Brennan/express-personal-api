@@ -62,6 +62,21 @@ app.post('/guitars', function create(req, res){
   });
 });
 
+app.put('/guitars/:id', function update(req, res){
+  var updatedG = req.body;
+  db.Guitar.findOne({_id: req.params.id}, function(err, guitar){
+    if(err){console.log(err)}
+    guitar.brand = updatedG.brand;
+    guitar.model = updatedG.model;
+    guitar.pickups = updatedG.pickups;
+    guitar.neck_construction = updatedG.neck_construction;
+    guitar.save(function(err){
+      if(err){console.log(err)}
+      res.json(guitar);
+    });
+  });
+});
+
 app.delete('/guitars/:id', function(req, res){
   db.Guitar.remove({_id: req.params.id}, function(err, guitar){
     console.log('guitar deleted');
