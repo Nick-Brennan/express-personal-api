@@ -13,6 +13,13 @@ var new_guitars = [{
                   neck_construction: "Bolt-on"
                 }
               ];
+
+  var otherGuitar  = {
+    brand: "Schecter",
+    model: "C1-EA",
+    pickups: "PAF clones",
+    neck_construction: "Set"
+  };
   db.Guitar.remove({}, function(err, books){
     if(err) {
       console.log('Error occurred in remove', err);
@@ -21,6 +28,12 @@ var new_guitars = [{
 
       // create new records based on the array books_list
       db.Guitar.create(new_guitars, function(err, guitar){
+        if (err) { return console.log('err', err); }
+        console.log("created a new guitar with id: ", guitar.id);
+        process.exit();
+      });
+
+      db.Guitar.create(otherGuitar, function(err, guitar){
         if (err) { return console.log('err', err); }
         console.log("created a new guitar with id: ", guitar.id);
         process.exit();

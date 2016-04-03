@@ -53,6 +53,15 @@ app.get('/guitars/:id', function show(req, res){
   })
 });
 
+app.post('/guitars', function create(req, res){
+  var newGuitar = req.body;
+  console.log(newGuitar);
+  db.Guitar.create(newGuitar, function(err, ng){
+    if(err){console.log(err)}
+    res.json(ng);
+  });
+});
+
 app.delete('/guitars/:id', function(req, res){
   db.Guitar.remove({_id: req.params.id}, function(err, guitar){
     console.log('guitar deleted');
