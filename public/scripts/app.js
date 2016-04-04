@@ -28,6 +28,7 @@ $(document).ready(function(){
     e.preventDefault();
     console.log('submitted');
     var newGuit = $(this).serialize();
+    $('#newGuitarForm').val('');
     $.ajax({
       method: 'POST',
       url: '/guitars',
@@ -61,4 +62,14 @@ function renderGuitars(){
   guitarsTarget.empty();
   var guitarHtml = guitarTemplate({guitars: guitars});
   guitarsTarget.append(guitarHtml);
+}
+
+function deleteGuitar(context){
+  var deletePath = '/guitars/' + context;
+  console.log(deletePath);
+  $.ajax({
+    method: 'DELETE',
+    url: '/guitars/' + context,
+    success: handleGuitarData
+  });
 }

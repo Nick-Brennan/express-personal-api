@@ -44,14 +44,16 @@
               <li>
                 <h4>{{brand}}</h4>
                 <p>
-                  {{model}} -- {{pickups}} -- {{neck_construction}}
+                  {{model}} -- {{pickups}} -- {{neck_construction}} -- {{_id}}
                 </p>
+                <button value="{{_id}}" class="deleteButton" onclick="deleteGuitar(this.value)">X</button>
                 <hr />
               </li>
               {{/each}}
             </script>
           </ul>
         </div>
+
       </div>
       <div class="row">
         <form id="newGuitarForm">
