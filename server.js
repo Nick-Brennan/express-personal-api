@@ -58,7 +58,9 @@ app.post('/guitars', function create(req, res){
   console.log(newGuitar);
   db.Guitar.create(newGuitar, function(err, ng){
     if(err){console.log(err)}
-    res.json(ng);
+    db.Guitar.find({}, function(err, guitars){
+      res.send(guitars);
+    });
   });
 });
 
@@ -72,7 +74,9 @@ app.put('/guitars/:id', function update(req, res){
     guitar.neck_construction = updatedG.neck_construction;
     guitar.save(function(err){
       if(err){console.log(err)}
-      res.json(guitar);
+      db.Guitar.find({}, function(err, guitars){
+        res.send(guitars);
+      });
     });
   });
 });

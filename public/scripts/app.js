@@ -23,6 +23,18 @@ $(document).ready(function(){
     url: '/guitars',
     success: handleGuitarData
   });
+
+  $('#newGuitarForm').on('submit', function(e){
+    e.preventDefault();
+    console.log('submitted');
+    var newGuit = $(this).serialize();
+    $.ajax({
+      method: 'POST',
+      url: '/guitars',
+      data: newGuit,
+      success: handleGuitarData
+    });
+  });
 });
 
 function handleProfileData(data){
